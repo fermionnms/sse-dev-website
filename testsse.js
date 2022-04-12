@@ -2,7 +2,7 @@
 const express = require('express')
 var cors = require('cors')
 const app = express()
-const port = 6758
+const port = 3000;
 
 const fs = require('fs')
 const home = fs.readFileSync('home.html', 'utf8');
