@@ -4,6 +4,10 @@ var cors = require('cors')
 const app = express()
 const port = 6758
 
+const fs = require('fs')
+const home = fs.readFileSync('home.html', 'utf8');
+const testpage = fs.readFileSync('testpage.html', 'utf8');
+
 
 app.use(cors())
 
@@ -12,13 +16,12 @@ app.use(cors())
 var event_interval_seconds = 2;
 
 
-
 app.get('/', (req, res) => {
-  var home = fs.readFileSync('home.html', 'utf8');
+  
   res.send(home);
 })
 
-const fs = require('fs')
+
 
 
 
@@ -65,7 +68,7 @@ app.get('/test', (req, res) => {
 
 app.get('/testpage', (req, res) => {
   //res.send('hi');
-  var testpage = fs.readFileSync('testpage.html', 'utf8');
+  
   res.send(testpage);
 });
 

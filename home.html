@@ -1,28 +1,6 @@
 <head>
 
-  <script>
-
-    const evtSource = new EventSource("/test");
-
-    function start_sse_test(){
-
-
-
-
-      evtSource.onmessage = function(event) {
-        console.log(event);
-        const newElement = document.createElement("li");
-
-
-        var dataobj = JSON.parse(event.data);
-        console.log(dataobj);
-
-        newElement.textContent = "message: " + event.data;
-        eventList.appendChild(newElement);
-      }
-
-    }
-  </script>
+  <title>Server-Sent Events - Testing Server</title>
 
 </head>
 
@@ -42,8 +20,8 @@
     console.log(dataobj);
   }
   </pre>
-  <a href="https://sse.dev/testpage">Demo Page to help you understand</a><br>
-  <a href="https://sse.dev/test">Test Event Source here</a>
+  <a href="/testpage">Demo Page to help you understand</a><br>
+  <a href="/test">Test Event Source here</a>
 </p>
 
 
@@ -55,7 +33,7 @@
   <pre>
   const evtSource = new EventSource("https://sse.dev/test?interval=5");
   </pre>
-  <a href="https://sse.dev/test?interval=5">Test Event Source here</a>
+  <a href="/test?interval=5">Test Event Source here</a>
 </p>
 
 
@@ -66,5 +44,5 @@
   <pre>
   const evtSource = new EventSource("https://sse.dev/test?jsonobj={"name":"werner","age":38}");
   </pre>
-  <a href='https://sse.dev/test?jsonobj={"name":"werner","age":38}'>Test Event Source here</a>
+  <a href='/test?jsonobj={"name":"werner","age":38}'>Test Event Source here</a>
 </p>
