@@ -1,0 +1,23 @@
+{
+  "name": "sse-dev-website",
+  "version": "1.0.0",
+  "description": "For testing Server-Sent Events",
+  "main": "testsse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fermionnms/sse-dev-website.git"
+  },
+  "author": "Werner Stucky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fermionnms/sse-dev-website/issues"
+  },
+  "homepage": "https://github.com/fermionnms/sse-dev-website#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  }
+}

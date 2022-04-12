@@ -1,0 +1,70 @@
+<head>
+
+  <script>
+
+    const evtSource = new EventSource("/test");
+
+    function start_sse_test(){
+
+
+
+
+      evtSource.onmessage = function(event) {
+        console.log(event);
+        const newElement = document.createElement("li");
+
+
+        var dataobj = JSON.parse(event.data);
+        console.log(dataobj);
+
+        newElement.textContent = "message: " + event.data;
+        eventList.appendChild(newElement);
+      }
+
+    }
+  </script>
+
+</head>
+
+<h1>Welcome to Test SSE (Server-Sent Events)</h1>
+
+<p>This site allows you to play with Server-Sent Events easily.</p>
+
+
+<h3>Basic Usage</h3>
+<p>
+  To receive the message in your browser copy and paste this into a script tag.  You will now be able to manipulate the DOM with the incoming data.<br>
+  You will receive a message by default every 2 seconds from the server.
+  <pre>
+  const evtSource = new EventSource("https://sse.dev/test");
+  evtSource.onmessage = function(event) {
+    var dataobj = JSON.parse(event.data);
+    console.log(dataobj);
+  }
+  </pre>
+  <a href="https://sse.dev/testpage">Demo Page to help you understand</a><br>
+  <a href="https://sse.dev/test">Test Event Source here</a>
+</p>
+
+
+
+<h2>Advanced</h2>
+<h3>Setting the interval</h3>
+<p>
+  To set the interval pass a "interval" query parameter on the url. eg. for 5 seconds do the following
+  <pre>
+  const evtSource = new EventSource("https://sse.dev/test?interval=5");
+  </pre>
+  <a href="https://sse.dev/test?interval=5">Test Event Source here</a>
+</p>
+
+
+
+<h3>Setting the data returned every interval</h3>
+<p>
+  To set the JSON data returned for each interval, pass a "jsonobj" query parameter on the url. eg.
+  <pre>
+  const evtSource = new EventSource("https://sse.dev/test?jsonobj={"name":"werner","age":38}");
+  </pre>
+  <a href='https://sse.dev/test?jsonobj={"name":"werner","age":38}'>Test Event Source here</a>
+</p>
