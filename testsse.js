@@ -52,14 +52,14 @@ app.get('/test', (req, res) => {
   if(req.query.jsonobj){
     //console.log(req.query.jsonobj);
     newClient.custom_dataobj = JSON.parse(req.query.jsonobj);
-    console.log('custom message', newClient.custom_dataobj);
+    //console.log('custom message', newClient.custom_dataobj);
   }
 
   //start client
   startClient(newClient);
 
   req.on('close', () => {
-    console.log(`${clientId} Connection closed`);
+    //console.log(`${clientId} Connection closed`);
     clearInterval(newClient.timer);
     clients = clients.filter(client => client.id !== clientId);
   });
@@ -94,13 +94,13 @@ function startClient(client){
 
 
 function get_data(custom_dataobj){
-  var now = new Date().getTime();
+  var now = Date.now()
   if(custom_dataobj){
     var testdata = custom_dataobj;
     testdata.now = now;
   }
   else{
-    var testdata = {'testing':true,'testsse':'is great','msg':'It works!','now':now};
+    var testdata = {'testing':true,'sse_dev':'is great','msg':'It works!','now':now};
   }
 
   return testdata;
